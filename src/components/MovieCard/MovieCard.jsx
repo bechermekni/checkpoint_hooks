@@ -1,7 +1,8 @@
 import React from "react";
 import ReactStars from "react-stars";
-import { Card } from "react-bootstrap";
+import { Card ,Button} from "react-bootstrap";
 import "./MovieCard.css"
+import {Link} from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   return (
@@ -19,9 +20,6 @@ const MovieCard = ({ movie }) => {
           <Card.Title style={{ color: "gray" }}>
             <h1>{movie.title}</h1>
           </Card.Title>
-          <Card.Text style={{ color: "white" }}>
-            {movie.description}
-          </Card.Text>
           <ReactStars
             count={5}
             size={24}
@@ -29,8 +27,11 @@ const MovieCard = ({ movie }) => {
             edit={false}
             half={false}
             value={movie.rating}
-          
-          />
+          />{" "}
+          <br /> <br />
+          <Link to={`/movie/${movie.id}`}>
+            <Button variant="success">Details</Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>
